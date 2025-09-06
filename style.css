@@ -5,7 +5,7 @@
 /* Mobile kecil */
 @media only screen and (max-width: 480px) and (min-width: 0px) {
   html {
-    font-size: 8px;
+    font-size: 5px;
   }
 }
 
@@ -55,7 +55,7 @@ body {
 }
 
 li {
-  margin: 20px;
+  margin: 1.25rem;
   color: rgba(0, 0, 0, 0.655);
   font-weight: 500;
 }
@@ -71,27 +71,48 @@ li:hover {
   width: 27.5rem;
 }
 
+@keyframes example {
+  0% {
+    color: #ffffff00;
+    top: -50px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
 .header {
+  margin-bottom: 0px;
   width: max-content;
   color: #000000d5;
   font-size: 4rem;
   font-weight: 620;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.305);
+  overflow: hidden;
+  animation: example 1.5s;
+  animation-timing-function: ease-out;
+  position: relative;
 }
+
+.subHeader {
+  padding-top: 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.305);
+}
+
 .wrapImg {
   display: flex;
   justify-content: flex-end;
 }
+
 .headerImg {
-  width: 25em;
+  width: 25rem;
   height: 25rem;
   margin-right: 6.25rem;
 }
 
 .content {
-  margin-top: 80px;
-  background-color: #4b91e7;
+  margin-top: 12rem;
+  background-color: #3399ff;
   width: 100%;
-  height: 100rem;
-  border-top-left-radius: 60px;
+  height: 300rem;
+  border-radius: 20px;
 }
