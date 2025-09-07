@@ -1,40 +1,6 @@
 * {
-  font-family: "Poppins";
-}
-
-/* Mobile kecil */
-@media only screen and (max-width: 480px) and (min-width: 0px) {
-  html {
-    font-size: 5px;
-  }
-}
-
-/* Mobile sedang */
-@media only screen and (min-width: 600px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-/* Tablet */
-@media only screen and (min-width: 768px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-/* Laptop kecil */
-@media only screen and (min-width: 992px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-/* Laptop besar / Desktop */
-@media only screen and (min-width: 1200px) {
-  html {
-    font-size: 16px;
-  }
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -52,6 +18,8 @@ body {
   justify-content: flex-end;
   list-style-type: none;
   margin-top: 0;
+  padding: 1rem 2rem;
+  background-color: #fff;
 }
 
 li {
@@ -65,10 +33,46 @@ li:hover {
   cursor: pointer;
 }
 
+.headerGrid {
+  display: grid;
+  grid-template-areas:
+    "text img"
+    "text img";
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  padding: 2rem 0;
+}
+
 .wrapper {
-  position: absolute;
+  grid-area: text;
   margin-left: 3.125rem;
   width: 27.5rem;
+}
+
+.wrapImg {
+  grid-area: img;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerImg {
+  width: 25rem;
+  height: 25rem;
+  margin-right: 6.25rem;
+}
+
+.header {
+  margin-bottom: 0px;
+  color: #000000d5;
+  font-size: 4rem;
+  font-weight: 620;
+  animation: example 1.5s ease-out;
+  position: relative;
+}
+
+.subHeader {
+  padding-top: 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.305);
 }
 
 @keyframes example {
@@ -81,38 +85,165 @@ li:hover {
   }
 }
 
-.header {
-  margin-bottom: 0px;
-  width: max-content;
-  color: #000000d5;
-  font-size: 4rem;
-  font-weight: 620;
-  overflow: hidden;
-  animation: example 1.5s;
-  animation-timing-function: ease-out;
-  position: relative;
-}
-
-.subHeader {
-  padding-top: 25px;
-  border-top: 1px solid rgba(0, 0, 0, 0.305);
-}
-
-.wrapImg {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.headerImg {
-  width: 25rem;
-  height: 25rem;
-  margin-right: 6.25rem;
-}
-
 .content {
   margin-top: 12rem;
   background-color: #3399ff;
   width: 100%;
   height: 300rem;
   border-radius: 20px;
+}
+
+/* Sembunyikan checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Hamburger icon */
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Default navbar desktop */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 1rem 2rem;
+  background-color: #fff;
+}
+
+/* Responsive Design */
+
+/* Mobile kecil (≤ 480px) */
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 10px;
+  }
+
+  .headerGrid {
+    grid-template-areas:
+      "img"
+      "text";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    text-align: center;
+  }
+
+  .wrapImg {
+    justify-content: center;
+  }
+
+  .headerImg {
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+  }
+
+  #menu-toggle:checked + .menu-icon + .navbar {
+    display: flex;
+  }
+
+  .navbar li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Mobile sedang (481px – 767px) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+
+  .headerGrid {
+    grid-template-areas:
+      "img"
+      "text";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    text-align: center;
+  }
+
+  .wrapImg {
+    justify-content: center;
+  }
+
+  .headerImg {
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+  }
+
+  /* Saat checkbox dicentang, tampilkan menu */
+  #menu-toggle:checked + .menu-icon + .navbar {
+    display: flex;
+  }
+
+  .navbar li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Laptop kecil */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Laptop besar / Desktop */
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
 }
