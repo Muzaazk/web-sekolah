@@ -40,7 +40,6 @@ li:hover {
     "text img";
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  padding: 2rem 0;
 }
 
 .wrapper {
@@ -63,7 +62,7 @@ li:hover {
 
 .header {
   margin-bottom: 0px;
-  color: #000000d5;
+  color: #000000de;
   font-size: 4rem;
   font-weight: 620;
   animation: example 1.5s ease-out;
@@ -91,14 +90,13 @@ li:hover {
   width: 100%;
   height: 300rem;
   border-radius: 20px;
+  padding: 3.125rem 3rem;
 }
 
-/* Sembunyikan checkbox */
 #menu-toggle {
   display: none;
 }
 
-/* Hamburger icon */
 .menu-icon {
   display: none;
   font-size: 2rem;
@@ -109,7 +107,6 @@ li:hover {
   z-index: 999;
 }
 
-/* Default navbar desktop */
 .navbar {
   display: flex;
   justify-content: flex-end;
@@ -118,12 +115,63 @@ li:hover {
   background-color: #fff;
 }
 
+.sambutanGrid {
+  display: grid;
+  grid-template-areas:
+    "img text"
+    "img text";
+  align-items: center;
+  gap: 2rem;
+}
+
+.sambutanGrid img {
+  grid-area: img;
+  width: 17rem;
+}
+
+.sambutanGrid div {
+  grid-area: text;
+}
+
+.sambutanGrid .sambutanJudul {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 450;
+}
+
+.sambutanGrid .sambutanIsi {
+  color: #ffffff;
+  text-align: justify;
+}
+
+.keahlian {
+  background-color: #ffffff;
+  height: 40rem;
+  margin-top: 5rem;
+  border-radius: 1.875rem;
+}
+
 /* Responsive Design */
 
 /* Mobile kecil (≤ 480px) */
 @media only screen and (max-width: 480px) {
   html {
     font-size: 10px;
+  }
+
+  .sambutanGrid {
+    display: grid;
+    grid-template-areas:
+      "img"
+      "text";
+    gap: 2rem;
+  }
+  .sambutanGrid img {
+    margin: 0 auto;
+  }
+
+  .sambutanGrid .sambutanJudul {
+    text-align: center;
   }
 
   .headerGrid {
@@ -179,6 +227,21 @@ li:hover {
     font-size: 12px;
   }
 
+  .sambutanGrid {
+    display: grid;
+    grid-template-areas:
+      "img"
+      "text";
+    gap: 2rem;
+  }
+  .sambutanGrid img {
+    margin: 0 auto;
+  }
+
+  .sambutanGrid .sambutanJudul {
+    text-align: center;
+  }
+
   .headerGrid {
     grid-template-areas:
       "img"
@@ -217,7 +280,6 @@ li:hover {
     z-index: 998;
   }
 
-  /* Saat checkbox dicentang, tampilkan menu */
   #menu-toggle:checked + .menu-icon + .navbar {
     display: flex;
   }
